@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from showfiles.views import MainPageView, PageView
+from showfiles.views import MainPageView, PageView, UserInputView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('userinput', UserInputView.as_view(), name="user-input"),
     path('pages/<page_name>/', PageView.as_view(), name="generated-files"),
     path('', MainPageView.as_view()),
 ]
